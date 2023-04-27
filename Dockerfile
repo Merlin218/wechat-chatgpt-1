@@ -9,4 +9,10 @@ COPY package.json pnpm-lock.yaml /code/
 RUN pnpm i
 COPY . /code
 
+# 新建.env文件并写入两行数据
+RUN touch .env
+RUN echo "BASE_URL="https://ai.devtool.tech/proxy"" >> .env
+RUN echo "OPEN_API_KEY="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"" >> .env
+RUN echo "WECHATY_PUPPET="wechaty-puppet-wechat"" >> .env
+
 CMD npm start
